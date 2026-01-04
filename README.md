@@ -38,7 +38,7 @@ Clone the repository:
    node index.js <github-username>
    node index.js Rukutodo
    ```
-###🧠 How It Works
+### 🧠 How It Works
 
 1.The GitHub username is read from command-line arguments using process.argv.
 
