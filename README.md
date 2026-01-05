@@ -38,7 +38,7 @@ Clone the repository:
    node index.js <github-username>
    node index.js Rukutodo
    ```
-###🧠 How It Works
+### 🧠 How It Works
 
 1.The GitHub username is read from command-line arguments using process.argv.
 
@@ -54,14 +54,14 @@ Clone the repository:
     CreateEvent → Displays repository creation
     PushEvent → Displays commit push activity with a running count
 
-###🧪 Example Output
+### 🧪 Example Output
 ---- Github User Activity ----
 ```
 Created repo Rukutodo/Roadmap.sh-luckyGuessGame
 Pushed 1 commits to Rukutodo/Roadmap.sh-luckyGuessGame
 Pushed 2 commits to Rukutodo/Roadmap.sh-luckyGuessGame
 ```
-###🛠️ Tech Stack
+### 🛠️ Tech Stack
 
 Node.js
 
@@ -70,12 +70,4 @@ JavaScript (ES Modules)
 Native fetch
 
 GitHub REST API
-###🛠️ Tech Stack
 
-Node.js
-
-JavaScript (ES Modules)
-
-Native fetch
-
-GitHub REST API
