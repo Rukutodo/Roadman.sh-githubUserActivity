@@ -1,8 +1,24 @@
 console.log(`---- Github User Activity ----`);
 const username = process.argv[2];
+if (username !== "") {
+  const response = await githubApiCall(username);
+  const result = await response.json();
+  let pushEventscounter = 0;
 
-const response = await githubApiCall(username);
-const result = await response.json();
+  const githubEvents = result.filter((events) => {
+    if (events.type === "CreateEvent") {
+      const createRepoName = events.repo.name;
+      console.log(`Created repo  ${createRepoName} `);
+    }
+    if (events.type === "PushEvent") {
+      pushEventscounter++;
+      const reponame = events.repo.name;
+      console.log(`Pushed ${pushEventscounter} commits to ${reponame} `);
+    }
+  });
+} else {
+  console.log("Please Enter a valid username:");
+}
 
 // Sample Json Data
 
@@ -187,19 +203,6 @@ const result = await response.json();
 //   "ReleaseEvent",
 //   "WatchEvent",
 // ];
-let pushEventscounter = 0;
-
-const githubEvents = result.filter((events) => {
-  if (events.type === "CreateEvent") {
-    const createRepoName = events.repo.name;
-    console.log(`Created repo  ${createRepoName} `);
-  }
-  if (events.type === "PushEvent") {
-    pushEventscounter++;
-    const reponame = events.repo.name;
-    console.log(`Pushed ${pushEventscounter} commits to ${reponame} `);
-  }
-});
 
 async function githubApiCall(username) {
   return await fetch(`https://api.github.com/users/${username}/events`);
