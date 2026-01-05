@@ -1,6 +1,7 @@
 console.log(`---- Github User Activity ----`);
 const username = process.argv[2];
-if (username !== "") {
+console.log(username === null, username);
+if (username) {
   const response = await githubApiCall(username);
   const result = await response.json();
   let pushEventscounter = 0;
